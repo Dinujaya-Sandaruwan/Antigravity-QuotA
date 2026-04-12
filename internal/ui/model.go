@@ -58,3 +58,18 @@ const (
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // STYLES
+// ═══════════════════════════════════════════════════════════════════════════════
+
+var (
+	sHeaderBg = lipgloss.NewStyle().Background(lipgloss.Color(cSurface)).Padding(0, 1)
+	sLogo     = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cLogo))
+	sAppName  = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cText))
+	sVer      = lipgloss.NewStyle().Foreground(lipgloss.Color(cMuted))
+	sFetch    = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cFetch))
+	sHintKey  = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cAccent2))
+	sHint     = lipgloss.NewStyle().Foreground(lipgloss.Color(cMuted))
+	sDivHi    = lipgloss.NewStyle().Foreground(lipgloss.Color(cBorderHi))
+	sDivLo    = lipgloss.NewStyle().Foreground(lipgloss.Color(cBorder))
+	sSepStyle = lipgloss.NewStyle().Foreground(lipgloss.Color(cSep))
+
+	sSection = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cAccent)).
