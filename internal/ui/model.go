@@ -43,3 +43,18 @@ const (
 	cFetch    = "220"
 	cError    = "210"
 	cFooter   = "240"
+	cScroll   = "63"
+	cLogo     = "99"
+	cBadgeOk  = "35"
+	cBadgeWt  = "208"
+	cClaude   = "204"
+	cGemini   = "39"
+	cFlash    = "220"
+	cSep      = "240"
+	cAccent   = "105"
+	cAccent2  = "75"
+	cDiscl    = "245"
+)
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// STYLES

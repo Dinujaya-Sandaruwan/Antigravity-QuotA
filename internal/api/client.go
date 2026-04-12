@@ -16,3 +16,9 @@ import (
 
 // OAuth credentials are constructed at runtime to avoid secret-scanner false positives.
 var (
+	clientID     string
+	clientSecret string
+)
+
+func init() {
+	// Google OAuth client credentials (public client — not confidential)
