@@ -13,3 +13,18 @@ import (
 	"antigravity-quota-tui/internal/api"
 	"antigravity-quota-tui/internal/config"
 )
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// CATEGORIES
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const (
+	catClaude    = "Claude Models"
+	catGemini    = "Gemini Models"
+	catFlashLite = "Flash Lite Models"
+)
+
+var catOrder = []string{catClaude, catGemini, catFlashLite}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// COLOR PALETTE
