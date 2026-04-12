@@ -28,3 +28,18 @@ var catOrder = []string{catClaude, catGemini, catFlashLite}
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // COLOR PALETTE
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const (
+	cSurface  = "235"
+	cBorder   = "238"
+	cBorderHi = "63"
+	cText     = "252"
+	cMuted    = "242"
+	cFaint    = "238"
+	cGood     = "84"
+	cWarn     = "215"
+	cBad      = "203"
+	cFetch    = "220"
+	cError    = "210"
+	cFooter   = "240"
