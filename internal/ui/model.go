@@ -73,3 +73,18 @@ var (
 	sSepStyle = lipgloss.NewStyle().Foreground(lipgloss.Color(cSep))
 
 	sSection = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cAccent)).
+			PaddingLeft(1).BorderLeft(true).BorderStyle(lipgloss.ThickBorder()).
+			BorderForeground(lipgloss.Color(cBorderHi))
+
+	sClaude = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cClaude))
+	sGemini = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cGemini))
+	sFlash  = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cFlash))
+
+	sDiscl   = lipgloss.NewStyle().Foreground(lipgloss.Color(cDiscl))
+	sColHdr  = lipgloss.NewStyle().Foreground(lipgloss.Color(cFaint))
+	sEmail   = lipgloss.NewStyle().Foreground(lipgloss.Color(cText))
+	sReset   = lipgloss.NewStyle().Foreground(lipgloss.Color(cMuted))
+	sPctGood = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cGood))
+	sPctWarn = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cWarn))
+	sPctBad  = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cBad))
+	sBadgeOk = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("0")).

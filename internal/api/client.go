@@ -28,3 +28,9 @@ func init() {
 
 const (
 	tokenURL  = "https://oauth2.googleapis.com/token"
+	baseURL   = "https://cloudcode-pa.googleapis.com"
+	userAgent = "antigravity/1.18.3 darwin/arm64"
+)
+
+var httpClient = &http.Client{Timeout: 15 * time.Second}
+
