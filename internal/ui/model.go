@@ -103,3 +103,18 @@ var (
 
 func catStyle(cat string) lipgloss.Style {
 	switch cat {
+	case catClaude:
+		return sClaude
+	case catGemini:
+		return sGemini
+	case catFlashLite:
+		return sFlash
+	default:
+		return sGemini
+	}
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// TYPES
+// ═══════════════════════════════════════════════════════════════════════════════
+

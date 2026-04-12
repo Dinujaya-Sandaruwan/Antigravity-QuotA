@@ -40,3 +40,9 @@ type tokenResponse struct {
 	AccessToken string `json:"access_token"`
 }
 
+type loadCodeAssistRequest struct {
+	Metadata map[string]string `json:"metadata"`
+}
+
+type loadCodeAssistResponse struct {
+	CloudaicompanionProject interface{} `json:"cloudaicompanionProject"`
