@@ -88,3 +88,18 @@ var (
 	sPctWarn = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cWarn))
 	sPctBad  = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cBad))
 	sBadgeOk = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("0")).
+			Background(lipgloss.Color(cBadgeOk)).Padding(0, 1)
+	sBadgeWt = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("0")).
+			Background(lipgloss.Color(cBadgeWt)).Padding(0, 1)
+	sError    = lipgloss.NewStyle().Foreground(lipgloss.Color(cError))
+	sFooter   = lipgloss.NewStyle().Foreground(lipgloss.Color(cFooter))
+	sMuted    = lipgloss.NewStyle().Foreground(lipgloss.Color(cMuted))
+	sCacheMod = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cAccent2))
+	sCacheCat = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cAccent2))
+	sModalBdr = lipgloss.NewStyle().Border(lipgloss.RoundedBorder()).
+			BorderForeground(lipgloss.Color(cBorderHi)).Padding(1, 3)
+	sModalHnt = lipgloss.NewStyle().Foreground(lipgloss.Color(cFaint)).Italic(true)
+)
+
+func catStyle(cat string) lipgloss.Style {
+	switch cat {

@@ -34,3 +34,9 @@ const (
 
 var httpClient = &http.Client{Timeout: 15 * time.Second}
 
+// ─── Raw API types ────────────────────────────────────────────────────────────
+
+type tokenResponse struct {
+	AccessToken string `json:"access_token"`
+}
+
