@@ -193,3 +193,18 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.loading = true
 				return m, doFetch(m.Accounts)
 			}
+		case "up", "k":
+			if m.scrollOffset > 0 {
+				m.scrollOffset--
+			}
+		case "down", "j":
+			m.scrollOffset++
+		case "pgup":
+			m.scrollOffset -= m.height / 2
+			if m.scrollOffset < 0 {
+				m.scrollOffset = 0
+			}
+		case "pgdn":
+			m.scrollOffset += m.height / 2
+		}
+

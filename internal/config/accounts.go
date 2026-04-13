@@ -11,3 +11,4 @@ import (
 type Account struct {
 	Email              string             `json:"email"`
 	RefreshToken       string             `json:"refreshToken"`
+	ProjectID          string             `json:"projectId,omitempty"`

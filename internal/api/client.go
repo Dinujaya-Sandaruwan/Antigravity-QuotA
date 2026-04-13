@@ -76,3 +76,9 @@ type ModelQuota struct {
 	Label                string
 	ModelID              string
 	RemainingPercentage  float64
+	IsExhausted          bool
+	ResetTime            time.Time
+	TimeUntilReset       time.Duration
+	TimeUntilResetFormatted string
+}
+
