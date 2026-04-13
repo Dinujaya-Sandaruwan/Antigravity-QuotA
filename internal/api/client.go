@@ -70,3 +70,9 @@ type fetchModelsResponse struct {
 }
 
 // ─── Public result types ──────────────────────────────────────────────────────
+
+// ModelQuota holds the processed quota data for a single model on one account.
+type ModelQuota struct {
+	Label                string
+	ModelID              string
+	RemainingPercentage  float64

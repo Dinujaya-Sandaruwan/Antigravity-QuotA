@@ -10,3 +10,4 @@ import (
 	"antigravity-quota-tui/internal/ui"
 )
 
+func main() {

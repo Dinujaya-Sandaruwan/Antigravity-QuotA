@@ -10,3 +10,4 @@ import (
 // Account mirrors the JSON structure in antigravity-accounts.json
 type Account struct {
 	Email              string             `json:"email"`
+	RefreshToken       string             `json:"refreshToken"`

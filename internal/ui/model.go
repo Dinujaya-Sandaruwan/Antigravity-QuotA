@@ -178,3 +178,18 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		m.height = msg.Height
 
 	case tea.KeyMsg:
+		if msg.String() == "ctrl+c" {
+			return m, tea.Quit
+		}
+		if m.modalOpen {
+			m.modalOpen = false
+			return m, nil
+		}
+		switch msg.String() {
+		case "q":
+			return m, tea.Quit
+		case "r":
+			if !m.loading {
+				m.loading = true
+				return m, doFetch(m.Accounts)
+			}
