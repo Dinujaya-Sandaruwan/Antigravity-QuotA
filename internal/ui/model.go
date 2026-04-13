@@ -148,3 +148,18 @@ type Model struct {
 	Accounts    []config.Account
 	groups      []api.ModelGroup
 	fetchErrors []string
+	loading     bool
+	lastFetch   time.Time
+	fetchTook   time.Duration
+
+	width        int
+	height       int
+	scrollOffset int
+
+	categories []categorizedGroup
+	clickZones []clickZone
+
+	modalOpen     bool
+	modalCategory string
+	modalModels   []string
+}

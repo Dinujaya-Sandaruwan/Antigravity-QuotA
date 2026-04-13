@@ -58,3 +58,9 @@ type quotaInfo struct {
 }
 
 type modelInfo struct {
+	DisplayName     string     `json:"displayName"`
+	Model           string     `json:"model"`
+	QuotaInfo       *quotaInfo `json:"quotaInfo"`
+	Recommended     bool       `json:"recommended"`
+	TagTitle        string     `json:"tagTitle"`
+}
