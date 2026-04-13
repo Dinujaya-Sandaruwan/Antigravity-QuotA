@@ -12,3 +12,4 @@ import (
 
 func main() {
 	cfg, err := config.Load()
+	if err != nil {

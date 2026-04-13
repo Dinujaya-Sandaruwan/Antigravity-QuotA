@@ -82,3 +82,9 @@ type ModelQuota struct {
 	TimeUntilResetFormatted string
 }
 
+// AccountQuotaResult is the outcome of fetching quota for one account.
+type AccountQuotaResult struct {
+	Email   string
+	Success bool
+	Error   string
+	Models  []ModelQuota

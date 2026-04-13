@@ -208,3 +208,18 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.scrollOffset += m.height / 2
 		}
 
+	case tea.MouseMsg:
+		if m.modalOpen {
+			if msg.Action == tea.MouseActionPress {
+				m.modalOpen = false
+			}
+			return m, nil
+		}
+		switch msg.Button {
+		case tea.MouseButtonWheelUp:
+			m.scrollOffset -= 3
+			if m.scrollOffset < 0 {
+				m.scrollOffset = 0
+			}
+		case tea.MouseButtonWheelDown:
+			m.scrollOffset += 3
