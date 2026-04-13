@@ -133,3 +133,18 @@ type leftPanelResult struct {
 	lines      []string
 	clickZones []clickZone
 }
+
+type fetchDoneMsg struct {
+	groups []api.ModelGroup
+	errors []string
+	took   time.Duration
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// MODEL
+// ═══════════════════════════════════════════════════════════════════════════════
+
+type Model struct {
+	Accounts    []config.Account
+	groups      []api.ModelGroup
+	fetchErrors []string

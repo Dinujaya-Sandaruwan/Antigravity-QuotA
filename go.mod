@@ -7,3 +7,4 @@ require (
 	github.com/charmbracelet/lipgloss v1.1.0
 )
 
+require (

@@ -52,3 +52,9 @@ type fetchModelsRequest struct {
 	Project string `json:"project,omitempty"`
 }
 
+type quotaInfo struct {
+	RemainingFraction *float64 `json:"remainingFraction"`
+	ResetTime         string   `json:"resetTime"`
+}
+
+type modelInfo struct {

@@ -7,3 +7,4 @@ import (
 	"path/filepath"
 )
 
+// Account mirrors the JSON structure in antigravity-accounts.json
