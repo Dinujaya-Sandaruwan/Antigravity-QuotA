@@ -94,3 +94,9 @@ type AccountQuotaResult struct {
 type ModelGroup struct {
 	// Labels contains all model display names that share the same quota pattern.
 	Labels   []string
+	Accounts []AccountQuotaEntry
+}
+
+// AccountQuotaEntry is one account's quota data within a ModelGroup.
+type AccountQuotaEntry struct {
+	Email      string

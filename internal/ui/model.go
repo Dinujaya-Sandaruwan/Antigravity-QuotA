@@ -238,3 +238,18 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		m.groups = msg.groups
 		m.fetchErrors = msg.errors
 		m.lastFetch = time.Now()
+		m.fetchTook = msg.took
+		m.scrollOffset = 0
+		m.categories = categorizeGroups(msg.groups)
+		// Pre-compute click zones (line numbers are width-independent)
+		result := buildLeftPanel(m.categories, 80)
+		m.clickZones = result.clickZones
+		return m, nil
+	}
+
+	return m, nil
+}
+
+func (m Model) View() string {
+	if m.width == 0 {
+		return ""

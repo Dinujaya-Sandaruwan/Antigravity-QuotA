@@ -14,3 +14,4 @@ type Account struct {
 	ProjectID          string             `json:"projectId,omitempty"`
 	ManagedProjectID   string             `json:"managedProjectId,omitempty"`
 	RateLimitResetTimes map[string]float64 `json:"rateLimitResetTimes"`
+}
