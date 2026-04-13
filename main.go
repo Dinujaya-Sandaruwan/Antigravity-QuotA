@@ -13,3 +13,4 @@ import (
 func main() {
 	cfg, err := config.Load()
 	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error: %s\n", err)

@@ -88,3 +88,9 @@ type AccountQuotaResult struct {
 	Success bool
 	Error   string
 	Models  []ModelQuota
+}
+
+// ModelGroup groups models with identical quota data across accounts.
+type ModelGroup struct {
+	// Labels contains all model display names that share the same quota pattern.
+	Labels   []string

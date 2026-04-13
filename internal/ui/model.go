@@ -223,3 +223,18 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 		case tea.MouseButtonWheelDown:
 			m.scrollOffset += 3
+		case tea.MouseButtonLeft:
+			if msg.Action == tea.MouseActionPress {
+				if cz, ok := m.findClickZone(msg.X, msg.Y); ok {
+					m.modalOpen = true
+					m.modalCategory = cz.category
+					m.modalModels = cz.models
+				}
+			}
+		}
+
+	case fetchDoneMsg:
+		m.loading = false
+		m.groups = msg.groups
+		m.fetchErrors = msg.errors
+		m.lastFetch = time.Now()
