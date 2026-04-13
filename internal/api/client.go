@@ -46,3 +46,9 @@ type loadCodeAssistRequest struct {
 
 type loadCodeAssistResponse struct {
 	CloudaicompanionProject interface{} `json:"cloudaicompanionProject"`
+}
+
+type fetchModelsRequest struct {
+	Project string `json:"project,omitempty"`
+}
+

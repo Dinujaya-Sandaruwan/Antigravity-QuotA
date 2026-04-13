@@ -118,3 +118,18 @@ func catStyle(cat string) lipgloss.Style {
 // TYPES
 // ═══════════════════════════════════════════════════════════════════════════════
 
+type categorizedGroup struct {
+	category string
+	groups   []api.ModelGroup
+}
+
+type clickZone struct {
+	category  string
+	titleLine int
+	models    []string
+}
+
+type leftPanelResult struct {
+	lines      []string
+	clickZones []clickZone
+}

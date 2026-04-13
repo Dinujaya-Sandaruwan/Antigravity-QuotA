@@ -6,3 +6,4 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea"
 
+	"antigravity-quota-tui/internal/config"
