@@ -64,3 +64,9 @@ type modelInfo struct {
 	Recommended     bool       `json:"recommended"`
 	TagTitle        string     `json:"tagTitle"`
 }
+
+type fetchModelsResponse struct {
+	Models map[string]modelInfo `json:"models"`
+}
+
+// ─── Public result types ──────────────────────────────────────────────────────
