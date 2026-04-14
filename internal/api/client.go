@@ -154,3 +154,9 @@ func loadCodeAssist(accessToken string) (string, error) {
 			"pluginType": "GEMINI",
 		},
 	})
+	req, _ := http.NewRequest("POST", baseURL+"/v1internal:loadCodeAssist", bytes.NewReader(body))
+	req.Header.Set("Authorization", "Bearer "+accessToken)
+	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("User-Agent", userAgent)
+
+	resp, err := httpClient.Do(req)

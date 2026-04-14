@@ -388,3 +388,18 @@ func viewHints() string {
 		{"R", "refresh"}, {"↑↓", "scroll"}, {"Q", "quit"},
 	}
 	var parts []string
+	for _, e := range entries {
+		parts = append(parts, sHintKey.Render(e.k)+" "+sHint.Render(e.v))
+	}
+	return strings.Join(parts, sHint.Render(" · "))
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// FOOTER
+// ═══════════════════════════════════════════════════════════════════════════════
+
+func (m Model) viewFooter(w int) string {
+	var sb strings.Builder
+	sb.WriteString(sDivHi.Render(strings.Repeat("━", w)) + "\n")
+
+	if len(m.fetchErrors) > 0 {

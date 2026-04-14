@@ -24,3 +24,4 @@ func main() {
 	m := ui.Model{
 		Accounts: cfg.Accounts,
 	}
+
