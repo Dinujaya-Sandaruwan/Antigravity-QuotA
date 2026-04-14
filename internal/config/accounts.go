@@ -16,3 +16,4 @@ type Account struct {
 	RateLimitResetTimes map[string]float64 `json:"rateLimitResetTimes"`
 }
 
+// AccountsConfig is the top-level structure of antigravity-accounts.json

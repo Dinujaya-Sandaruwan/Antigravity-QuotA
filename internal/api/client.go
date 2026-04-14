@@ -106,3 +106,9 @@ type AccountQuotaEntry struct {
 }
 
 // ─── Token refresh ────────────────────────────────────────────────────────────
+
+func refreshToken(refreshToken string) (string, error) {
+	params := url.Values{
+		"client_id":     {clientID},
+		"client_secret": {clientSecret},
+		"refresh_token": {refreshToken},

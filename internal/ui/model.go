@@ -268,3 +268,18 @@ func (m Model) View() string {
 		return m.viewLoading()
 	}
 
+	w := m.width
+
+	// ── Header (2 rows, sticky) ──────────────────────────────────────────────
+	header := m.viewHeader(w)
+	hdrH := 2
+
+	// ── Footer (sticky bottom) ───────────────────────────────────────────────
+	footer := m.viewFooter(w)
+	ftrH := m.footerLineCount()
+
+	// ── Scrollable body ──────────────────────────────────────────────────────
+	bodyH := m.height - hdrH - ftrH
+	if bodyH < 1 {
+		bodyH = 1
+	}
