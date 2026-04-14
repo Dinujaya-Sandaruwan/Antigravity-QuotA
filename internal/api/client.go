@@ -100,3 +100,9 @@ type ModelGroup struct {
 // AccountQuotaEntry is one account's quota data within a ModelGroup.
 type AccountQuotaEntry struct {
 	Email      string
+	Percentage float64
+	ResetIn    string
+	IsExhausted bool
+}
+
+// ─── Token refresh ────────────────────────────────────────────────────────────

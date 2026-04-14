@@ -253,3 +253,18 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 func (m Model) View() string {
 	if m.width == 0 {
 		return ""
+	}
+	if m.width < 50 {
+		return sMuted.Render("Terminal too narrow. Resize to at least 50 columns.")
+	}
+
+	// Modal overlay (model list popup) takes the full screen
+	if m.modalOpen {
+		return m.viewModal()
+	}
+
+	// Loading overlay — shown on initial fetch AND on R refresh
+	if m.loading {
+		return m.viewLoading()
+	}
+
