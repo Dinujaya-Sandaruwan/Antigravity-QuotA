@@ -148,3 +148,9 @@ func extractProjectID(raw interface{}) string {
 
 func loadCodeAssist(accessToken string) (string, error) {
 	body, _ := json.Marshal(loadCodeAssistRequest{
+		Metadata: map[string]string{
+			"ideType":    "ANTIGRAVITY",
+			"platform":   "PLATFORM_UNSPECIFIED",
+			"pluginType": "GEMINI",
+		},
+	})

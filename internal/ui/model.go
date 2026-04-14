@@ -373,3 +373,18 @@ func (m Model) viewHeader(w int) string {
 	hints := viewHints()
 	hintsW := lipgloss.Width(hints)
 
+	gap := w - leftW - hintsW - 2
+	if gap < 1 {
+		gap = 1
+	}
+
+	row1 := sHeaderBg.Width(w).Render(left + strings.Repeat(" ", gap) + hints)
+	row2 := sDivHi.Render(strings.Repeat("━", w))
+	return row1 + "\n" + row2 + "\n"
+}
+
+func viewHints() string {
+	entries := []struct{ k, v string }{
+		{"R", "refresh"}, {"↑↓", "scroll"}, {"Q", "quit"},
+	}
+	var parts []string
