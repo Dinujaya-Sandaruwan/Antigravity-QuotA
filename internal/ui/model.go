@@ -328,3 +328,18 @@ func (m Model) View() string {
 		l := fitWidth(leftLines[i], leftW)
 		r := fitWidth(rightLines[i], rightW)
 		bodyLines[i] = l + " " + sep + " " + r
+	}
+
+	// Apply scroll
+	maxScroll := len(bodyLines) - bodyH
+	if maxScroll < 0 {
+		maxScroll = 0
+	}
+	scroll := m.scrollOffset
+	if scroll > maxScroll {
+		scroll = maxScroll
+	}
+	if scroll < 0 {
+		scroll = 0
+	}
+	end := scroll + bodyH

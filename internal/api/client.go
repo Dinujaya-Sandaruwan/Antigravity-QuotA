@@ -130,3 +130,9 @@ func refreshToken(refreshToken string) (string, error) {
 }
 
 // ─── loadCodeAssist (project discovery) ──────────────────────────────────────
+
+func extractProjectID(raw interface{}) string {
+	if raw == nil {
+		return ""
+	}
+	if s, ok := raw.(string); ok && s != "" {

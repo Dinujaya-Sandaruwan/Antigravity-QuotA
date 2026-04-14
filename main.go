@@ -20,3 +20,4 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error: no accounts found in configuration.\n")
 		os.Exit(1)
 	}
+

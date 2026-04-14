@@ -20,3 +20,4 @@ type Account struct {
 type AccountsConfig struct {
 	Accounts    []Account `json:"accounts"`
 	ActiveIndex int       `json:"activeIndex"`
+}
