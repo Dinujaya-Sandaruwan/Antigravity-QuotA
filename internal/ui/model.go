@@ -358,3 +358,18 @@ func (m Model) View() string {
 func (m Model) viewHeader(w int) string {
 	logo := sLogo.Render("◈")
 	name := sAppName.Render(" Antigravity Quota ")
+	ver := sVer.Render("v1.0")
+
+	var status string
+	if m.loading {
+		status = "  " + sFetch.Render("⟳ fetching…")
+	} else if !m.lastFetch.IsZero() {
+		status = "  " + sMuted.Render(m.lastFetch.Format("15:04:05"))
+	}
+
+	left := logo + name + ver + status
+	leftW := lipgloss.Width(left)
+
+	hints := viewHints()
+	hintsW := lipgloss.Width(hints)
+

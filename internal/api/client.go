@@ -142,3 +142,9 @@ func extractProjectID(raw interface{}) string {
 		if id, ok := m["id"].(string); ok {
 			return id
 		}
+	}
+	return ""
+}
+
+func loadCodeAssist(accessToken string) (string, error) {
+	body, _ := json.Marshal(loadCodeAssistRequest{

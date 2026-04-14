@@ -22,3 +22,4 @@ type AccountsConfig struct {
 	ActiveIndex int       `json:"activeIndex"`
 }
 
+// configPaths returns candidate paths for the accounts file, in priority order.
