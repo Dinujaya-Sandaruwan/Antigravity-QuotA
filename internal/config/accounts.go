@@ -25,3 +25,4 @@ type AccountsConfig struct {
 // configPaths returns candidate paths for the accounts file, in priority order.
 func configPaths() []string {
 	home, _ := os.UserHomeDir()
+

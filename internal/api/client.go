@@ -160,3 +160,9 @@ func loadCodeAssist(accessToken string) (string, error) {
 	req.Header.Set("User-Agent", userAgent)
 
 	resp, err := httpClient.Do(req)
+	if err != nil {
+		return "", fmt.Errorf("loadCodeAssist: %w", err)
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		return "", fmt.Errorf("loadCodeAssist failed (%d)", resp.StatusCode)

@@ -403,3 +403,18 @@ func (m Model) viewFooter(w int) string {
 	sb.WriteString(sDivHi.Render(strings.Repeat("━", w)) + "\n")
 
 	if len(m.fetchErrors) > 0 {
+		for _, e := range m.fetchErrors {
+			sb.WriteString(sError.Render(" ✗  "+e) + "\n")
+		}
+	}
+
+	if !m.lastFetch.IsZero() {
+		sb.WriteString(sFooter.Render(fmt.Sprintf(
+			" Updated %s · %s · %d accounts",
+			m.lastFetch.Format("Mon 15:04:05"),
+			m.fetchTook.Round(time.Millisecond),
+			len(m.Accounts),
+		)) + "\n")
+	} else if m.loading {
+		sb.WriteString(sFooter.Render(" Loading…") + "\n")
+	}

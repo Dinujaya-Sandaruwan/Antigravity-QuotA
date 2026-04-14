@@ -25,3 +25,4 @@ func main() {
 		Accounts: cfg.Accounts,
 	}
 
+	p := tea.NewProgram(m, tea.WithAltScreen(), tea.WithMouseCellMotion())
