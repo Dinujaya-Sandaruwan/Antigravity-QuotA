@@ -118,3 +118,9 @@ func refreshToken(refreshToken string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("token request: %w", err)
 	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		return "", fmt.Errorf("token failed (%d)", resp.StatusCode)
+	}
+	var tr tokenResponse
+	if err := json.NewDecoder(resp.Body).Decode(&tr); err != nil {

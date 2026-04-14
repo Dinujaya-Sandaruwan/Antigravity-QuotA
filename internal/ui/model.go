@@ -298,3 +298,18 @@ func (m Model) View() string {
 			bodyLines[1] = msg
 		}
 		return header + strings.Join(bodyLines, "\n") + "\n" + footer
+	}
+
+	// Build left & right panels
+	leftW := m.leftW()
+	sepW := 3 // " │ "
+	rightW := w - leftW - sepW
+	if rightW < 10 {
+		rightW = 10
+	}
+
+	lp := buildLeftPanel(m.categories, leftW)
+	leftLines := lp.lines
+	rightLines := buildRightPanel(m.Accounts, rightW)
+
+	// Pad to same height
