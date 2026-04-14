@@ -313,3 +313,18 @@ func (m Model) View() string {
 	rightLines := buildRightPanel(m.Accounts, rightW)
 
 	// Pad to same height
+	maxH := max(len(leftLines), len(rightLines))
+	for len(leftLines) < maxH {
+		leftLines = append(leftLines, "")
+	}
+	for len(rightLines) < maxH {
+		rightLines = append(rightLines, "")
+	}
+
+	// Join side-by-side with separator
+	sep := sSepStyle.Render("│")
+	bodyLines := make([]string, maxH)
+	for i := 0; i < maxH; i++ {
+		l := fitWidth(leftLines[i], leftW)
+		r := fitWidth(rightLines[i], rightW)
+		bodyLines[i] = l + " " + sep + " " + r

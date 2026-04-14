@@ -124,3 +124,9 @@ func refreshToken(refreshToken string) (string, error) {
 	}
 	var tr tokenResponse
 	if err := json.NewDecoder(resp.Body).Decode(&tr); err != nil {
+		return "", fmt.Errorf("decode token: %w", err)
+	}
+	return tr.AccessToken, nil
+}
+
+// ─── loadCodeAssist (project discovery) ──────────────────────────────────────
