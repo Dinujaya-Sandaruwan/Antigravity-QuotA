@@ -17,3 +17,4 @@ type Account struct {
 }
 
 // AccountsConfig is the top-level structure of antigravity-accounts.json
+type AccountsConfig struct {

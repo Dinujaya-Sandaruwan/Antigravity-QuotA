@@ -112,3 +112,9 @@ func refreshToken(refreshToken string) (string, error) {
 		"client_id":     {clientID},
 		"client_secret": {clientSecret},
 		"refresh_token": {refreshToken},
+		"grant_type":    {"refresh_token"},
+	}
+	resp, err := httpClient.PostForm(tokenURL, params)
+	if err != nil {
+		return "", fmt.Errorf("token request: %w", err)
+	}

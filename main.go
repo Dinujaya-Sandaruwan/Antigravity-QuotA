@@ -17,3 +17,4 @@ func main() {
 		os.Exit(1)
 	}
 	if len(cfg.Accounts) == 0 {
+		fmt.Fprintf(os.Stderr, "Error: no accounts found in configuration.\n")

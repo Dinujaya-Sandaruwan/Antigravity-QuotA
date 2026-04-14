@@ -283,3 +283,18 @@ func (m Model) View() string {
 	if bodyH < 1 {
 		bodyH = 1
 	}
+
+	// No data yet?
+	if m.categories == nil {
+		var msg string
+		if m.lastFetch.IsZero() {
+			msg = sMuted.Render("  Fetching data for all accounts…")
+		} else {
+			msg = sMuted.Render("  No data. Press ") + sHintKey.Render("R") + sMuted.Render(" to refresh.")
+		}
+		bodyLines := make([]string, bodyH)
+		bodyLines[0] = ""
+		if bodyH > 1 {
+			bodyLines[1] = msg
+		}
+		return header + strings.Join(bodyLines, "\n") + "\n" + footer
