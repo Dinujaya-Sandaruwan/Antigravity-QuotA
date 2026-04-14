@@ -136,3 +136,9 @@ func extractProjectID(raw interface{}) string {
 		return ""
 	}
 	if s, ok := raw.(string); ok && s != "" {
+		return s
+	}
+	if m, ok := raw.(map[string]interface{}); ok {
+		if id, ok := m["id"].(string); ok {
+			return id
+		}

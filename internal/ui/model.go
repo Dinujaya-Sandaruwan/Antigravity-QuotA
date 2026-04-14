@@ -343,3 +343,18 @@ func (m Model) View() string {
 		scroll = 0
 	}
 	end := scroll + bodyH
+	if end > len(bodyLines) {
+		end = len(bodyLines)
+	}
+	visible := strings.Join(bodyLines[scroll:end], "\n")
+
+	return header + visible + "\n" + footer
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// HEADER
+// ═══════════════════════════════════════════════════════════════════════════════
+
+func (m Model) viewHeader(w int) string {
+	logo := sLogo.Render("◈")
+	name := sAppName.Render(" Antigravity Quota ")
