@@ -26,3 +26,4 @@ type AccountsConfig struct {
 func configPaths() []string {
 	home, _ := os.UserHomeDir()
 
+	// Respect OPENCODE_CONFIG_DIR override (same logic as the TS plugin)

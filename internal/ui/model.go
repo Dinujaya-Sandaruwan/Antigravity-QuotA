@@ -418,3 +418,18 @@ func (m Model) viewFooter(w int) string {
 	} else if m.loading {
 		sb.WriteString(sFooter.Render(" Loading…") + "\n")
 	}
+
+	return sb.String()
+}
+
+func (m Model) footerLineCount() int {
+	h := 1 // divider
+	if len(m.fetchErrors) > 0 {
+		h += len(m.fetchErrors)
+	}
+	if !m.lastFetch.IsZero() {
+		h++
+	} else if m.loading {
+		h++
+	}
+	return h

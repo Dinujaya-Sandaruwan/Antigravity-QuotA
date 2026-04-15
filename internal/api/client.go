@@ -166,3 +166,9 @@ func loadCodeAssist(accessToken string) (string, error) {
 	defer resp.Body.Close()
 	if resp.StatusCode != http.StatusOK {
 		return "", fmt.Errorf("loadCodeAssist failed (%d)", resp.StatusCode)
+	}
+	var lca loadCodeAssistResponse
+	if err := json.NewDecoder(resp.Body).Decode(&lca); err != nil {
+		return "", fmt.Errorf("decode loadCodeAssist: %w", err)
+	}
+	return extractProjectID(lca.CloudaicompanionProject), nil
