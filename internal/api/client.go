@@ -172,3 +172,9 @@ func loadCodeAssist(accessToken string) (string, error) {
 		return "", fmt.Errorf("decode loadCodeAssist: %w", err)
 	}
 	return extractProjectID(lca.CloudaicompanionProject), nil
+}
+
+// ─── fetchAvailableModels ─────────────────────────────────────────────────────
+
+func fetchAvailableModels(accessToken, projectID string) (*fetchModelsResponse, error) {
+	payload := fetchModelsRequest{Project: projectID}

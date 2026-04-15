@@ -433,3 +433,18 @@ func (m Model) footerLineCount() int {
 		h++
 	}
 	return h
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// LOADING OVERLAY
+// ═══════════════════════════════════════════════════════════════════════════════
+
+func (m Model) viewLoading() string {
+	// Spinner frames cycle on each render — we use a fixed char since we
+	// have no tick, but the bold box is enough visual weight.
+	spinnerStyle := lipgloss.NewStyle().
+		Bold(true).
+		Foreground(lipgloss.Color(cFetch))
+
+	titleStyle := lipgloss.NewStyle().
+		Bold(true).

@@ -27,3 +27,4 @@ func configPaths() []string {
 	home, _ := os.UserHomeDir()
 
 	// Respect OPENCODE_CONFIG_DIR override (same logic as the TS plugin)
+	if override := os.Getenv("OPENCODE_CONFIG_DIR"); override != "" {
