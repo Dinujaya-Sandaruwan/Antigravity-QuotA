@@ -31,3 +31,4 @@ func configPaths() []string {
 		return []string{filepath.Join(override, "antigravity-accounts.json")}
 	}
 
+	xdgData := os.Getenv("XDG_DATA_HOME")

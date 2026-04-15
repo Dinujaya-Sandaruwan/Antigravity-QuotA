@@ -493,3 +493,18 @@ func (m Model) viewLoading() string {
 // ═══════════════════════════════════════════════════════════════════════════════
 // MODAL (model list popup)
 // ═══════════════════════════════════════════════════════════════════════════════
+
+func (m Model) viewModal() string {
+	style := catStyle(m.modalCategory)
+
+	var sb strings.Builder
+	sb.WriteString(style.Render("◆  "+m.modalCategory) + "\n")
+
+	maxLabelW := 0
+	for _, model := range m.modalModels {
+		if len(model) > maxLabelW {
+			maxLabelW = len(model)
+		}
+	}
+	divW := maxLabelW + 6
+	if divW < 30 {

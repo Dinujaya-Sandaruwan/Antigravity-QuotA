@@ -196,3 +196,9 @@ func fetchAvailableModels(accessToken, projectID string) (*fetchModelsResponse, 
 	if err := json.NewDecoder(resp.Body).Decode(&fmr); err != nil {
 		return nil, fmt.Errorf("decode fetchModels: %w", err)
 	}
+	return &fmr, nil
+}
+
+// ─── Per-account quota fetch ──────────────────────────────────────────────────
+
+// FetchAccountQuota fetches quota data for a single account. It mirrors the
