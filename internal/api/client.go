@@ -178,3 +178,9 @@ func loadCodeAssist(accessToken string) (string, error) {
 
 func fetchAvailableModels(accessToken, projectID string) (*fetchModelsResponse, error) {
 	payload := fetchModelsRequest{Project: projectID}
+	body, _ := json.Marshal(payload)
+	req, _ := http.NewRequest("POST", baseURL+"/v1internal:fetchAvailableModels", bytes.NewReader(body))
+	req.Header.Set("Authorization", "Bearer "+accessToken)
+	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("User-Agent", userAgent)
+

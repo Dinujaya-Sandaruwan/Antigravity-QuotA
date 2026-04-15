@@ -448,3 +448,18 @@ func (m Model) viewLoading() string {
 
 	titleStyle := lipgloss.NewStyle().
 		Bold(true).
+		Foreground(lipgloss.Color(cText))
+
+	subStyle := lipgloss.NewStyle().
+		Foreground(lipgloss.Color(cMuted))
+
+	boxStyle := lipgloss.NewStyle().
+		Border(lipgloss.RoundedBorder()).
+		BorderForeground(lipgloss.Color(cFetch)).
+		Background(lipgloss.Color(cSurface)).
+		Padding(2, 6).
+		Align(lipgloss.Center)
+
+	n := len(m.Accounts)
+	accountWord := "account"
+	if n != 1 {
