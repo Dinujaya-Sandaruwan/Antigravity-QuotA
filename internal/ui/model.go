@@ -523,3 +523,18 @@ func (m Model) viewModal() string {
 
 	box := sModalBdr.Render(sb.String())
 	return lipgloss.Place(m.width, m.height, lipgloss.Center, lipgloss.Center, box)
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// LEFT PANEL — API Quota
+// ═══════════════════════════════════════════════════════════════════════════════
+
+func buildLeftPanel(cats []categorizedGroup, w int) leftPanelResult {
+	var r leftPanelResult
+	nl := func() { r.lines = append(r.lines, "") } // blank line
+	emit := func(s string) { r.lines = append(r.lines, s) }
+
+	nl()
+	emit(" " + sSection.Render(" API Quota "))
+	nl()
+

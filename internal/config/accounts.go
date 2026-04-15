@@ -33,3 +33,4 @@ func configPaths() []string {
 
 	xdgData := os.Getenv("XDG_DATA_HOME")
 	if xdgData == "" {
+		xdgData = filepath.Join(home, ".local", "share")
