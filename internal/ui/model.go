@@ -538,3 +538,18 @@ func buildLeftPanel(cats []categorizedGroup, w int) leftPanelResult {
 	emit(" " + sSection.Render(" API Quota "))
 	nl()
 
+	for ci, cat := range cats {
+		// Collect all model labels for the modal
+		var labels []string
+		for _, g := range cat.groups {
+			labels = append(labels, g.Labels...)
+		}
+
+		// Compute overall average percentage across ALL accounts in this category
+		var sum float64
+		var count int
+		for _, g := range cat.groups {
+			for _, acc := range g.Accounts {
+				sum += acc.Percentage
+				count++
+			}

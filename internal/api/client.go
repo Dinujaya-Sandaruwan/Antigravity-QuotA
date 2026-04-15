@@ -214,3 +214,9 @@ func FetchAccountQuota(account config.Account) AccountQuotaResult {
 		projectID = account.ManagedProjectID
 	}
 	if projectID == "" {
+		projectID, err = loadCodeAssist(token)
+		if err != nil {
+			return AccountQuotaResult{Email: account.Email, Success: false, Error: err.Error()}
+		}
+	}
+
