@@ -30,3 +30,4 @@ func configPaths() []string {
 	if override := os.Getenv("OPENCODE_CONFIG_DIR"); override != "" {
 		return []string{filepath.Join(override, "antigravity-accounts.json")}
 	}
+

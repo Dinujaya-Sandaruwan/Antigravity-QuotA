@@ -30,3 +30,4 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error running TUI: %s\n", err)
 		os.Exit(1)
 	}
+}

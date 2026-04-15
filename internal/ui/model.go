@@ -478,3 +478,18 @@ func (m Model) viewLoading() string {
 	hdrH := 2
 	bodyH := m.height - hdrH
 	if bodyH < 1 {
+		bodyH = 1
+	}
+
+	hint := subStyle.Render("Press Q to quit")
+	hintLine := lipgloss.Place(m.width, 1, lipgloss.Center, lipgloss.Top, hint)
+
+	// Center the box in remaining space (leave 1 row for hint at bottom)
+	centered := lipgloss.Place(m.width, bodyH-1, lipgloss.Center, lipgloss.Center, box)
+
+	return header + centered + "\n" + hintLine
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// MODAL (model list popup)
+// ═══════════════════════════════════════════════════════════════════════════════

@@ -190,3 +190,9 @@ func fetchAvailableModels(accessToken, projectID string) (*fetchModelsResponse, 
 	}
 	defer resp.Body.Close()
 	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("fetchAvailableModels failed (%d)", resp.StatusCode)
+	}
+	var fmr fetchModelsResponse
+	if err := json.NewDecoder(resp.Body).Decode(&fmr); err != nil {
+		return nil, fmt.Errorf("decode fetchModels: %w", err)
+	}
