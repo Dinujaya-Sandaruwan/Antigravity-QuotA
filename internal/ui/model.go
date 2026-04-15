@@ -463,3 +463,18 @@ func (m Model) viewLoading() string {
 	n := len(m.Accounts)
 	accountWord := "account"
 	if n != 1 {
+		accountWord = "accounts"
+	}
+
+	content := spinnerStyle.Render("⟳  Fetching Data") + "\n\n" +
+		titleStyle.Render("Querying Antigravity API") + "\n" +
+		subStyle.Render(fmt.Sprintf("Refreshing quota for %d %s…", n, accountWord)) + "\n\n" +
+		subStyle.Render("Please wait, this may take a few seconds.")
+
+	box := boxStyle.Render(content)
+
+	// Place the header + centered box + hint
+	header := m.viewHeader(m.width)
+	hdrH := 2
+	bodyH := m.height - hdrH
+	if bodyH < 1 {
