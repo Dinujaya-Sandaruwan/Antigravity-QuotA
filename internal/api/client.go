@@ -202,3 +202,9 @@ func fetchAvailableModels(accessToken, projectID string) (*fetchModelsResponse, 
 // ─── Per-account quota fetch ──────────────────────────────────────────────────
 
 // FetchAccountQuota fetches quota data for a single account. It mirrors the
+// TypeScript plugin's fetchAccountQuota function exactly.
+func FetchAccountQuota(account config.Account) AccountQuotaResult {
+	token, err := refreshToken(account.RefreshToken)
+	if err != nil {
+		return AccountQuotaResult{Email: account.Email, Success: false, Error: err.Error()}
+	}

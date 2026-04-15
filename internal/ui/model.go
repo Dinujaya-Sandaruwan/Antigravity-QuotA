@@ -508,3 +508,18 @@ func (m Model) viewModal() string {
 	}
 	divW := maxLabelW + 6
 	if divW < 30 {
+		divW = 30
+	}
+	sb.WriteString(sDivLo.Render(strings.Repeat("─", divW)) + "\n\n")
+
+	for i, model := range m.modalModels {
+		num := sHint.Render(fmt.Sprintf(" %2d. ", i+1))
+		name := sEmail.Render(model)
+		sb.WriteString(num + name + "\n")
+	}
+
+	sb.WriteString("\n")
+	sb.WriteString(sModalHnt.Render("  Press any key or click to close"))
+
+	box := sModalBdr.Render(sb.String())
+	return lipgloss.Place(m.width, m.height, lipgloss.Center, lipgloss.Center, box)
