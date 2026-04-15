@@ -220,3 +220,9 @@ func FetchAccountQuota(account config.Account) AccountQuotaResult {
 		}
 	}
 
+	fmr, err := fetchAvailableModels(token, projectID)
+	if err != nil {
+		return AccountQuotaResult{Email: account.Email, Success: false, Error: err.Error()}
+	}
+
+	if fmr.Models == nil {

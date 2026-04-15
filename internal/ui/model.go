@@ -553,3 +553,18 @@ func buildLeftPanel(cats []categorizedGroup, w int) leftPanelResult {
 				sum += acc.Percentage
 				count++
 			}
+		}
+		var avgPct float64
+		if count > 0 {
+			avgPct = sum / float64(count)
+		}
+
+		// ── Category title ────────────────────────────────────────────────
+		style := catStyle(cat.category)
+		title := style.Render("  ◆  " + cat.category)
+		discl := sDiscl.Render("▸ models")
+		gap := w - lipgloss.Width(title) - lipgloss.Width(discl) - 2
+		if gap < 1 {
+			gap = 1
+		}
+		titleLine := len(r.lines) // index of the title row

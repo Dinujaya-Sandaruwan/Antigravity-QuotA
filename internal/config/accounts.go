@@ -35,3 +35,4 @@ func configPaths() []string {
 	if xdgData == "" {
 		xdgData = filepath.Join(home, ".local", "share")
 	}
+
