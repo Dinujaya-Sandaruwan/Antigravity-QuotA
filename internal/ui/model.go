@@ -598,3 +598,18 @@ func buildLeftPanel(cats []categorizedGroup, w int) leftPanelResult {
 		// Scale ruler
 		scaleStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("236"))
 		emit(scaleStyle.Render("      0%   20%  40%  60%  80% 100%"))
+		nl() // space after scale
+
+		// ── Column header ─────────────────────────────────────────────────
+		emit(sColHdr.Render("     ACCOUNT              QUOTA                           PCT    RESET"))
+		nl() // space after column header
+
+		// ── Per-account rows ──────────────────────────────────────────────
+		for _, g := range cat.groups {
+			for _, acc := range g.Accounts {
+				bar, pctStr := renderBar(acc.Percentage)
+				reset := sReset.Render(padRight(acc.ResetIn, 6))
+				email := sEmail.Render(padRight(api.ShortEmail(acc.Email), 20))
+				emit(fmt.Sprintf("     %s  %s  %s  %s", email, bar, pctStr, reset))
+				nl() // blank line between every account row
+			}

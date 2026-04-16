@@ -38,3 +38,4 @@ func configPaths() []string {
 
 	seen := map[string]struct{}{}
 	var paths []string
+	for _, p := range []string{

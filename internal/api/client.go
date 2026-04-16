@@ -238,3 +238,9 @@ func FetchAccountQuota(account config.Account) AccountQuotaResult {
 		}
 		label := info.DisplayName
 		if label == "" {
+			label = key
+		}
+		lower := strings.ToLower(label)
+		if strings.HasPrefix(lower, "chat_") ||
+			strings.HasPrefix(lower, "rev19") ||
+			strings.Contains(lower, "gemini 2.5") ||
