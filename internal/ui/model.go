@@ -688,3 +688,18 @@ func buildRightPanel(accounts []config.Account, w int) []string {
 			emit("   " + sCacheMod.Render(cleanName))
 			nl()
 
+			type row struct {
+				email     string
+				remaining float64
+				ready     bool
+				resetStr  string
+				lastUsed  string
+			}
+			var rows []row
+
+			for _, acc := range accounts {
+				resetMs := acc.RateLimitResetTimes[model]
+				remaining := resetMs - nowMs
+				available := resetMs == 0 || remaining <= 0
+
+				var rs, lu string

@@ -274,3 +274,9 @@ func FetchAccountQuota(account config.Account) AccountQuotaResult {
 		}
 
 		models = append(models, ModelQuota{
+			Label:                   label,
+			ModelID:                 modelID,
+			RemainingPercentage:     remaining * 100,
+			IsExhausted:             remaining <= 0,
+			ResetTime:               resetTime,
+			TimeUntilReset:          until,
