@@ -673,3 +673,18 @@ func buildRightPanel(accounts []config.Account, w int) []string {
 	for _, bkt := range bucketOrder {
 		models := buckets[bkt]
 		if len(models) == 0 {
+			continue
+		}
+		sort.Strings(models)
+
+		emit(" " + sCacheCat.Render(bkt))
+		nl()
+
+		for _, model := range models {
+			cleanName := model
+			if idx := strings.LastIndex(model, ":"); idx >= 0 {
+				cleanName = model[idx+1:]
+			}
+			emit("   " + sCacheMod.Render(cleanName))
+			nl()
+

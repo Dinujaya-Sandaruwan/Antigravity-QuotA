@@ -43,3 +43,4 @@ func configPaths() []string {
 		filepath.Join(xdgData, "opencode", "antigravity-accounts.json"),
 	} {
 		if _, ok := seen[p]; !ok {
+			seen[p] = struct{}{}

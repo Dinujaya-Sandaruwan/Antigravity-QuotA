@@ -268,3 +268,9 @@ func FetchAccountQuota(account config.Account) AccountQuotaResult {
 			until = 0
 		}
 
+		modelID := info.Model
+		if modelID == "" {
+			modelID = key
+		}
+
+		models = append(models, ModelQuota{
