@@ -256,3 +256,9 @@ func FetchAccountQuota(account config.Account) AccountQuotaResult {
 		var resetTime time.Time
 		if info.QuotaInfo.ResetTime != "" {
 			if t, err := time.Parse(time.RFC3339, info.QuotaInfo.ResetTime); err == nil {
+				resetTime = t
+			}
+		}
+		if resetTime.IsZero() {
+			resetTime = now.Add(24 * time.Hour)
+		}

@@ -643,3 +643,18 @@ func buildRightPanel(accounts []config.Account, w int) []string {
 
 	// Gather all model keys
 	allModels := map[string]struct{}{}
+	for _, acc := range accounts {
+		for k := range acc.RateLimitResetTimes {
+			allModels[k] = struct{}{}
+		}
+	}
+	if len(allModels) == 0 {
+		emit("  " + sMuted.Render("No cache entries."))
+		return lines
+	}
+
+	// Categorize
+	buckets := map[string][]string{
+		"Antigravity": {},
+		"Gemini CLI":  {},
+	}
