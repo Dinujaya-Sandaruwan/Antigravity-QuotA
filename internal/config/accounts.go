@@ -46,3 +46,4 @@ func configPaths() []string {
 			seen[p] = struct{}{}
 			paths = append(paths, p)
 		}
+	}

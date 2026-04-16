@@ -718,3 +718,18 @@ func buildRightPanel(accounts []config.Account, w int) []string {
 				}
 
 				rows = append(rows, row{
+					email:     api.ShortEmail(acc.Email),
+					remaining: remaining,
+					ready:     available,
+					resetStr:  rs,
+					lastUsed:  lu,
+				})
+			}
+
+			sort.Slice(rows, func(i, j int) bool {
+				return rows[i].remaining < rows[j].remaining
+			})
+
+			for _, r := range rows {
+				var badge string
+				if r.ready {

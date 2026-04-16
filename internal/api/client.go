@@ -286,3 +286,9 @@ func FetchAccountQuota(account config.Account) AccountQuotaResult {
 
 	sort.Slice(models, func(i, j int) bool {
 		return models[i].Label < models[j].Label
+	})
+
+	return AccountQuotaResult{Email: account.Email, Success: true, Models: models}
+}
+
+// ─── Fetch all accounts sequentially (with small delay between) ───────────────
