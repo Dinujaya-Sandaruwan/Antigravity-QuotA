@@ -244,3 +244,9 @@ func FetchAccountQuota(account config.Account) AccountQuotaResult {
 		if strings.HasPrefix(lower, "chat_") ||
 			strings.HasPrefix(lower, "rev19") ||
 			strings.Contains(lower, "gemini 2.5") ||
+			strings.Contains(lower, "gemini 3 pro image") {
+			continue
+		}
+
+		remaining := 0.0
+		if info.QuotaInfo.RemainingFraction != nil {

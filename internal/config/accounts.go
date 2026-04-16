@@ -39,3 +39,4 @@ func configPaths() []string {
 	seen := map[string]struct{}{}
 	var paths []string
 	for _, p := range []string{
+		filepath.Join(home, ".config", "opencode", "antigravity-accounts.json"),

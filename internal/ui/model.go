@@ -613,3 +613,18 @@ func buildLeftPanel(cats []categorizedGroup, w int) leftPanelResult {
 				emit(fmt.Sprintf("     %s  %s  %s  %s", email, bar, pctStr, reset))
 				nl() // blank line between every account row
 			}
+		}
+
+		// Category separator (dashed line between categories)
+		if ci < len(cats)-1 {
+			emit("     " + sDivLo.Render(strings.Repeat("╌", min(w-7, 52))))
+			nl()
+			nl()
+		}
+	}
+
+	return r
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// RIGHT PANEL — Local Cache
