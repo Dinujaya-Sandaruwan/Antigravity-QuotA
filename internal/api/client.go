@@ -262,3 +262,9 @@ func FetchAccountQuota(account config.Account) AccountQuotaResult {
 		if resetTime.IsZero() {
 			resetTime = now.Add(24 * time.Hour)
 		}
+
+		until := resetTime.Sub(now)
+		if until < 0 {
+			until = 0
+		}
+

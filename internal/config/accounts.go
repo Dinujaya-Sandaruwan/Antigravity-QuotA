@@ -42,3 +42,4 @@ func configPaths() []string {
 		filepath.Join(home, ".config", "opencode", "antigravity-accounts.json"),
 		filepath.Join(xdgData, "opencode", "antigravity-accounts.json"),
 	} {
+		if _, ok := seen[p]; !ok {

@@ -658,3 +658,18 @@ func buildRightPanel(accounts []config.Account, w int) []string {
 		"Antigravity": {},
 		"Gemini CLI":  {},
 	}
+	for k := range allModels {
+		switch {
+		case strings.HasPrefix(k, "gemini-antigravity:") || strings.Contains(k, "claude"):
+			buckets["Antigravity"] = append(buckets["Antigravity"], k)
+		case strings.HasPrefix(k, "gemini-cli:"):
+			buckets["Gemini CLI"] = append(buckets["Gemini CLI"], k)
+		default:
+			buckets["Antigravity"] = append(buckets["Antigravity"], k)
+		}
+	}
+
+	bucketOrder := []string{"Antigravity", "Gemini CLI"}
+	for _, bkt := range bucketOrder {
+		models := buckets[bkt]
+		if len(models) == 0 {
