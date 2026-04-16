@@ -703,3 +703,18 @@ func buildRightPanel(accounts []config.Account, w int) []string {
 				available := resetMs == 0 || remaining <= 0
 
 				var rs, lu string
+				switch {
+				case resetMs == 0:
+					rs = "—"
+					lu = "never"
+				case available:
+					rs = "ready"
+					d := time.Duration(math.Abs(remaining)) * time.Millisecond
+					lu = api.FormatDuration(d) + " ago"
+				default:
+					d := time.Duration(remaining) * time.Millisecond
+					rs = api.FormatDuration(d)
+					lu = "—"
+				}
+
+				rows = append(rows, row{

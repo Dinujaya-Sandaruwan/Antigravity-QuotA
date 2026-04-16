@@ -280,3 +280,9 @@ func FetchAccountQuota(account config.Account) AccountQuotaResult {
 			IsExhausted:             remaining <= 0,
 			ResetTime:               resetTime,
 			TimeUntilReset:          until,
+			TimeUntilResetFormatted: FormatDuration(until),
+		})
+	}
+
+	sort.Slice(models, func(i, j int) bool {
+		return models[i].Label < models[j].Label

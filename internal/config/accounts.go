@@ -45,3 +45,4 @@ func configPaths() []string {
 		if _, ok := seen[p]; !ok {
 			seen[p] = struct{}{}
 			paths = append(paths, p)
+		}
