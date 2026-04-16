@@ -36,3 +36,4 @@ func configPaths() []string {
 		xdgData = filepath.Join(home, ".local", "share")
 	}
 
+	seen := map[string]struct{}{}

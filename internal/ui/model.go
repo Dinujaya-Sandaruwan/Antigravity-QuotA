@@ -568,3 +568,18 @@ func buildLeftPanel(cats []categorizedGroup, w int) leftPanelResult {
 			gap = 1
 		}
 		titleLine := len(r.lines) // index of the title row
+		emit(title + strings.Repeat(" ", gap) + discl)
+		nl() // blank line after title
+
+		// ── Overall summary bar ───────────────────────────────────────────
+		var pctStyle lipgloss.Style
+		switch {
+		case avgPct >= 70:
+			pctStyle = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cGood))
+		case avgPct >= 30:
+			pctStyle = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cWarn))
+		default:
+			pctStyle = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(cBad))
+		}
+		overallPctStr := pctStyle.Render(fmt.Sprintf("%5.1f%%", avgPct))
+		overallBar := renderOverallBar(avgPct)

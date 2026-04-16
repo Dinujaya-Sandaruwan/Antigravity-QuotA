@@ -226,3 +226,9 @@ func FetchAccountQuota(account config.Account) AccountQuotaResult {
 	}
 
 	if fmr.Models == nil {
+		return AccountQuotaResult{Email: account.Email, Success: true}
+	}
+
+	now := time.Now()
+	var models []ModelQuota
+
