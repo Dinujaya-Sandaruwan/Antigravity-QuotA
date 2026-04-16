@@ -37,3 +37,4 @@ func configPaths() []string {
 	}
 
 	seen := map[string]struct{}{}
+	var paths []string

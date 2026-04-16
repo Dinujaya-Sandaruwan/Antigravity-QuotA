@@ -583,3 +583,18 @@ func buildLeftPanel(cats []categorizedGroup, w int) leftPanelResult {
 		}
 		overallPctStr := pctStyle.Render(fmt.Sprintf("%5.1f%%", avgPct))
 		overallBar := renderOverallBar(avgPct)
+		overallLabel := sMuted.Render("  avg across all accounts")
+		
+		emit("     " + overallBar + "  " + overallPctStr + overallLabel)
+		nl() // space after overall bar
+
+		// Record click zones for exactly the title row
+		r.clickZones = append(r.clickZones, clickZone{
+			category:  cat.category,
+			titleLine: titleLine,
+			models:    labels,
+		})
+
+		// Scale ruler
+		scaleStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("236"))
+		emit(scaleStyle.Render("      0%   20%  40%  60%  80% 100%"))

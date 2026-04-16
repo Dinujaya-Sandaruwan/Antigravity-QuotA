@@ -232,3 +232,9 @@ func FetchAccountQuota(account config.Account) AccountQuotaResult {
 	now := time.Now()
 	var models []ModelQuota
 
+	for key, info := range fmr.Models {
+		if info.QuotaInfo == nil {
+			continue
+		}
+		label := info.DisplayName
+		if label == "" {
