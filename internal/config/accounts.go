@@ -40,3 +40,4 @@ func configPaths() []string {
 	var paths []string
 	for _, p := range []string{
 		filepath.Join(home, ".config", "opencode", "antigravity-accounts.json"),
+		filepath.Join(xdgData, "opencode", "antigravity-accounts.json"),

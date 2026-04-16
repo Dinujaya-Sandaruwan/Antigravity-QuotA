@@ -628,3 +628,18 @@ func buildLeftPanel(cats []categorizedGroup, w int) leftPanelResult {
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // RIGHT PANEL — Local Cache
+// ═══════════════════════════════════════════════════════════════════════════════
+
+func buildRightPanel(accounts []config.Account, w int) []string {
+	var lines []string
+	nl := func() { lines = append(lines, "") }
+	emit := func(s string) { lines = append(lines, s) }
+	now := time.Now()
+	nowMs := float64(now.UnixMilli())
+
+	nl()
+	emit(" " + sSection.Render(" Local Cache "))
+	nl()
+
+	// Gather all model keys
+	allModels := map[string]struct{}{}

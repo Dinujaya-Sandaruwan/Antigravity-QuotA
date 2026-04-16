@@ -250,3 +250,9 @@ func FetchAccountQuota(account config.Account) AccountQuotaResult {
 
 		remaining := 0.0
 		if info.QuotaInfo.RemainingFraction != nil {
+			remaining = math.Min(1, math.Max(0, *info.QuotaInfo.RemainingFraction))
+		}
+
+		var resetTime time.Time
+		if info.QuotaInfo.ResetTime != "" {
+			if t, err := time.Parse(time.RFC3339, info.QuotaInfo.ResetTime); err == nil {
