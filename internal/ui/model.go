@@ -943,3 +943,18 @@ func fitWidth(s string, w int) string {
 		return s
 	}
 	if vw < w {
+		return s + strings.Repeat(" ", w-vw)
+	}
+	return s // wider than target — let it overflow slightly
+}
+
+func padRight(s string, n int) string {
+	if len(s) >= n {
+		return s
+	}
+	return s + strings.Repeat(" ", n-len(s))
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// COMMANDS
+// ═══════════════════════════════════════════════════════════════════════════════

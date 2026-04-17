@@ -376,3 +376,9 @@ func groupModels(results []AccountQuotaResult) ([]ModelGroup, []string) {
 			gd.labels = append(gd.labels, rm.label)
 		} else {
 			groupMap[sig] = &groupData{labels: []string{rm.label}, accounts: accs}
+			groupOrder = append(groupOrder, sig)
+		}
+	}
+
+	groups := make([]ModelGroup, 0, len(groupOrder))
+	for _, sig := range groupOrder {

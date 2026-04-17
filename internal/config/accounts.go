@@ -61,3 +61,4 @@ func Load() (*AccountsConfig, error) {
 			}
 			return nil, fmt.Errorf("reading %s: %w", p, err)
 		}
+		var cfg AccountsConfig
