@@ -748,3 +748,18 @@ func buildRightPanel(accounts []config.Account, w int) []string {
 
 	return lines
 }
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// CLICK DETECTION
+// ═══════════════════════════════════════════════════════════════════════════════
+
+func (m Model) findClickZone(x, y int) (clickZone, bool) {
+	// The sticky header occupies rows 0 and 1.
+	const hdrH = 2
+	ftrH := m.footerLineCount()
+	bodyH := m.height - hdrH - ftrH
+	if bodyH < 1 || y < hdrH || y >= hdrH+bodyH {
+		return clickZone{}, false
+	}
+
+	// We add +1 because the user's terminal rendering has an off-by-one

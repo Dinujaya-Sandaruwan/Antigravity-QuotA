@@ -298,3 +298,9 @@ func FetchAccountQuota(account config.Account) AccountQuotaResult {
 func FetchAllAccounts(accounts []config.Account) ([]AccountQuotaResult, []ModelGroup, []string) {
 	results := make([]AccountQuotaResult, 0, len(accounts))
 	for i, acc := range accounts {
+		if i > 0 {
+			time.Sleep(300 * time.Millisecond)
+		}
+		results = append(results, FetchAccountQuota(acc))
+	}
+	groups, errors := groupModels(results)
