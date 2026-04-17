@@ -334,3 +334,9 @@ func groupModels(results []AccountQuotaResult) ([]ModelGroup, []string) {
 			rm.accounts = append(rm.accounts, AccountQuotaEntry{
 				Email:       r.Email,
 				Percentage:  m.RemainingPercentage,
+				ResetIn:     m.TimeUntilResetFormatted,
+				IsExhausted: m.IsExhausted,
+			})
+		}
+	}
+

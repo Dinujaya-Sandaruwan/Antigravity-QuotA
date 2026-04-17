@@ -838,3 +838,18 @@ func renderBar(pct float64) (bar string, pctStr string) {
 	switch {
 	case pct >= 70:
 		filledStyle = lipgloss.NewStyle().Foreground(lipgloss.Color(cGood))
+		pctStyle = sPctGood
+	case pct >= 30:
+		filledStyle = lipgloss.NewStyle().Foreground(lipgloss.Color(cWarn))
+		pctStyle = sPctWarn
+	default:
+		filledStyle = lipgloss.NewStyle().Foreground(lipgloss.Color(cBad))
+		pctStyle = sPctBad
+	}
+	emptyStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(cBorder))
+	sepStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("240"))
+	sep := sepStyle.Render("┊")
+
+	// Total filled chars out of (segments × segW)
+	totalFilled := int(math.Round(pct / 100 * float64(segments*segW)))
+	if totalFilled > segments*segW {

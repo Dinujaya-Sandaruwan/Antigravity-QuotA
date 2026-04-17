@@ -54,3 +54,4 @@ func configPaths() []string {
 func Load() (*AccountsConfig, error) {
 	paths := configPaths()
 	for _, p := range paths {
+		data, err := os.ReadFile(p)
