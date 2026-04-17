@@ -823,3 +823,18 @@ func categorizeGroups(groups []api.ModelGroup) []categorizedGroup {
 // RENDERING HELPERS
 // ═══════════════════════════════════════════════════════════════════════════════
 
+// renderBar renders a 5-segment progress bar where each segment represents 20%.
+// Each segment contains 4 block characters. Segments are separated by a thin
+// divider so the 20% boundaries are visually clear.
+//
+//	e.g. 65% → [████][████][████][ ░░░][    ]  65%
+func renderBar(pct float64) (bar string, pctStr string) {
+	const segments = 5      // 5 × 20% = 100%
+	const segW = 4          // block chars per segment
+	const segTotal = 100.0 / segments // 20.0
+
+	// Colour scheme based on overall percentage
+	var filledStyle, pctStyle lipgloss.Style
+	switch {
+	case pct >= 70:
+		filledStyle = lipgloss.NewStyle().Foreground(lipgloss.Color(cGood))

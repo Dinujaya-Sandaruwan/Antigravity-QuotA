@@ -328,3 +328,9 @@ func groupModels(results []AccountQuotaResult) ([]ModelGroup, []string) {
 		for _, m := range r.Models {
 			rm, ok := allModels[m.ModelID]
 			if !ok {
+				rm = &rawModel{label: m.Label}
+				allModels[m.ModelID] = rm
+			}
+			rm.accounts = append(rm.accounts, AccountQuotaEntry{
+				Email:       r.Email,
+				Percentage:  m.RemainingPercentage,
