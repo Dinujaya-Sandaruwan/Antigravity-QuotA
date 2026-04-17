@@ -292,3 +292,9 @@ func FetchAccountQuota(account config.Account) AccountQuotaResult {
 }
 
 // ─── Fetch all accounts sequentially (with small delay between) ───────────────
+
+// FetchAllAccounts fetches quota for every account sequentially (same as TS
+// plugin) and returns the raw per-account results plus grouped model data.
+func FetchAllAccounts(accounts []config.Account) ([]AccountQuotaResult, []ModelGroup, []string) {
+	results := make([]AccountQuotaResult, 0, len(accounts))
+	for i, acc := range accounts {

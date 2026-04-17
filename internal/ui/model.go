@@ -733,3 +733,18 @@ func buildRightPanel(accounts []config.Account, w int) []string {
 			for _, r := range rows {
 				var badge string
 				if r.ready {
+					badge = sBadgeOk.Render("OK")
+				} else {
+					badge = sBadgeWt.Render("WT")
+				}
+				info := sMuted.Render(fmt.Sprintf("%-7s %-9s", r.resetStr, r.lastUsed))
+				name := sEmail.Render(r.email)
+				emit(fmt.Sprintf("    %s %s %s", badge, info, name))
+				nl()
+			}
+			nl()
+		}
+	}
+
+	return lines
+}

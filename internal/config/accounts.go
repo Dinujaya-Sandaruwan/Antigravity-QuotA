@@ -47,3 +47,4 @@ func configPaths() []string {
 			paths = append(paths, p)
 		}
 	}
+	return paths
