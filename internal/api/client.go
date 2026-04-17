@@ -304,3 +304,9 @@ func FetchAllAccounts(accounts []config.Account) ([]AccountQuotaResult, []ModelG
 		results = append(results, FetchAccountQuota(acc))
 	}
 	groups, errors := groupModels(results)
+	return results, groups, errors
+}
+
+// groupModels replicates the TypeScript plugin's model-grouping logic:
+// models with identical per-account quota signatures are merged under a
+// combined label.

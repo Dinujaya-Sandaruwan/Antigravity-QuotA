@@ -763,3 +763,18 @@ func (m Model) findClickZone(x, y int) (clickZone, bool) {
 	}
 
 	// We add +1 because the user's terminal rendering has an off-by-one
+	// shift. This shifts the detection zone exactly one line UP on the screen
+	// to perfectly align with the text they are clicking.
+	bodyLine := (y - hdrH) + m.scrollOffset + 1
+
+	for _, cz := range m.clickZones {
+		// Only exact match on the title text line
+		if bodyLine == cz.titleLine {
+			return cz, true
+		}
+	}
+	return clickZone{}, false
+}
+
+func (m Model) leftW() int {
+	w := m.width

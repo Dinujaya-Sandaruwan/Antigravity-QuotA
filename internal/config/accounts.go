@@ -49,3 +49,4 @@ func configPaths() []string {
 	}
 	return paths
 }
+
