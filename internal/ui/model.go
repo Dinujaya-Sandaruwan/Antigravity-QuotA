@@ -913,3 +913,18 @@ func renderOverallBar(pct float64) string {
 	var sb strings.Builder
 	remaining := totalFilled
 	for i := 0; i < segments; i++ {
+		sb.WriteString("[")
+		f := remaining
+		if f > segW {
+			f = segW
+		}
+		if f < 0 {
+			f = 0
+		}
+		e := segW - f
+		if f > 0 {
+			sb.WriteString(filledStyle.Render(strings.Repeat("█", f)))
+		}
+		if e > 0 {
+			sb.WriteString(emptyStyle.Render(strings.Repeat("░", e)))
+		}

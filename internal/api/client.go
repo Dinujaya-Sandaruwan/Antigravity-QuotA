@@ -364,3 +364,9 @@ func groupModels(results []AccountQuotaResult) ([]ModelGroup, []string) {
 		accs := make([]AccountQuotaEntry, len(rm.accounts))
 		copy(accs, rm.accounts)
 		sort.Slice(accs, func(i, j int) bool {
+			return accs[i].Email < accs[j].Email
+		})
+		parts := make([]string, len(accs))
+		for i, a := range accs {
+			parts[i] = fmt.Sprintf("%s:%.1f:%s", a.Email, a.Percentage, a.ResetIn)
+		}

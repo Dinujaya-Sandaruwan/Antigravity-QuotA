@@ -59,3 +59,4 @@ func Load() (*AccountsConfig, error) {
 			if os.IsNotExist(err) {
 				continue
 			}
+			return nil, fmt.Errorf("reading %s: %w", p, err)
