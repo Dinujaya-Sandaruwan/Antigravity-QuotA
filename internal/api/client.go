@@ -310,3 +310,9 @@ func FetchAllAccounts(accounts []config.Account) ([]AccountQuotaResult, []ModelG
 // groupModels replicates the TypeScript plugin's model-grouping logic:
 // models with identical per-account quota signatures are merged under a
 // combined label.
+func groupModels(results []AccountQuotaResult) ([]ModelGroup, []string) {
+	var errors []string
+
+	// modelID → { label, []accounts }
+	type rawModel struct {
+		label    string

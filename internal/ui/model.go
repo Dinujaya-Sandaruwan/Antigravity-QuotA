@@ -778,3 +778,18 @@ func (m Model) findClickZone(x, y int) (clickZone, bool) {
 
 func (m Model) leftW() int {
 	w := m.width
+	if w < 100 {
+		return w * 60 / 100
+	}
+	return w * 55 / 100
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// CATEGORY CLASSIFICATION
+// ═══════════════════════════════════════════════════════════════════════════════
+
+func classifyGroup(g api.ModelGroup) string {
+	for _, l := range g.Labels {
+		low := strings.ToLower(l)
+		if strings.Contains(low, "claude") || strings.Contains(low, "gpt-oss") || strings.Contains(low, "gpt oss") {
+			return catClaude
