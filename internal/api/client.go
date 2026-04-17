@@ -370,3 +370,9 @@ func groupModels(results []AccountQuotaResult) ([]ModelGroup, []string) {
 		for i, a := range accs {
 			parts[i] = fmt.Sprintf("%s:%.1f:%s", a.Email, a.Percentage, a.ResetIn)
 		}
+		sig := strings.Join(parts, "|")
+
+		if gd, ok := groupMap[sig]; ok {
+			gd.labels = append(gd.labels, rm.label)
+		} else {
+			groupMap[sig] = &groupData{labels: []string{rm.label}, accounts: accs}

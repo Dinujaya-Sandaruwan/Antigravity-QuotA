@@ -928,3 +928,18 @@ func renderOverallBar(pct float64) string {
 		if e > 0 {
 			sb.WriteString(emptyStyle.Render(strings.Repeat("░", e)))
 		}
+		sb.WriteString("]")
+		if i < segments-1 {
+			sb.WriteString(sep)
+		}
+		remaining -= segW
+	}
+	return sb.String()
+}
+
+func fitWidth(s string, w int) string {
+	vw := lipgloss.Width(s)
+	if vw == w {
+		return s
+	}
+	if vw < w {

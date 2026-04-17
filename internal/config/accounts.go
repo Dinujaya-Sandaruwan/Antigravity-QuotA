@@ -60,3 +60,4 @@ func Load() (*AccountsConfig, error) {
 				continue
 			}
 			return nil, fmt.Errorf("reading %s: %w", p, err)
+		}
