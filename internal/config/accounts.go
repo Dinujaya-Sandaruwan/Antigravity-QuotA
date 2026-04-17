@@ -58,3 +58,4 @@ func Load() (*AccountsConfig, error) {
 		if err != nil {
 			if os.IsNotExist(err) {
 				continue
+			}

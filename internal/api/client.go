@@ -358,3 +358,9 @@ func groupModels(results []AccountQuotaResult) ([]ModelGroup, []string) {
 	groupMap := map[string]*groupData{}
 	var groupOrder []string
 
+	for _, id := range modelIDs {
+		rm := allModels[id]
+		// Build signature: sorted "email:pct:resetIn" entries
+		accs := make([]AccountQuotaEntry, len(rm.accounts))
+		copy(accs, rm.accounts)
+		sort.Slice(accs, func(i, j int) bool {

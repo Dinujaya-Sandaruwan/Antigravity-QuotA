@@ -898,3 +898,18 @@ func renderOverallBar(pct float64) string {
 		filledStyle = lipgloss.NewStyle().Foreground(lipgloss.Color(cGood)).Bold(true)
 	case pct >= 30:
 		filledStyle = lipgloss.NewStyle().Foreground(lipgloss.Color(cWarn)).Bold(true)
+	default:
+		filledStyle = lipgloss.NewStyle().Foreground(lipgloss.Color(cBad)).Bold(true)
+	}
+	emptyStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("236"))
+	sepStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("240"))
+	sep := sepStyle.Render("┊")
+
+	totalFilled := int(math.Round(pct / 100 * float64(segments*segW)))
+	if totalFilled > segments*segW {
+		totalFilled = segments * segW
+	}
+
+	var sb strings.Builder
+	remaining := totalFilled
+	for i := 0; i < segments; i++ {
