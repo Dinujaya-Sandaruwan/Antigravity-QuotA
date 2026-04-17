@@ -793,3 +793,18 @@ func classifyGroup(g api.ModelGroup) string {
 		low := strings.ToLower(l)
 		if strings.Contains(low, "claude") || strings.Contains(low, "gpt-oss") || strings.Contains(low, "gpt oss") {
 			return catClaude
+		}
+	}
+	for _, l := range g.Labels {
+		low := strings.ToLower(l)
+		if strings.Contains(low, "tab_flash") || strings.Contains(low, "tab_jump") {
+			return catFlashLite
+		}
+	}
+	return catGemini
+}
+
+func categorizeGroups(groups []api.ModelGroup) []categorizedGroup {
+	m := map[string][]api.ModelGroup{}
+	for _, g := range groups {
+		cat := classifyGroup(g)

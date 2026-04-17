@@ -316,3 +316,9 @@ func groupModels(results []AccountQuotaResult) ([]ModelGroup, []string) {
 	// modelID → { label, []accounts }
 	type rawModel struct {
 		label    string
+		accounts []AccountQuotaEntry
+	}
+	allModels := map[string]*rawModel{}
+
+	for _, r := range results {
+		if !r.Success || r.Models == nil {
