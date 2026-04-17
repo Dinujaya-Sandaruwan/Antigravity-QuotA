@@ -382,3 +382,39 @@ func groupModels(results []AccountQuotaResult) ([]ModelGroup, []string) {
 
 	groups := make([]ModelGroup, 0, len(groupOrder))
 	for _, sig := range groupOrder {
+		gd := groupMap[sig]
+		// Sort accounts within a group by percentage descending (highest first)
+		sort.Slice(gd.accounts, func(i, j int) bool {
+			return gd.accounts[i].Percentage > gd.accounts[j].Percentage
+		})
+		groups = append(groups, ModelGroup{Labels: gd.labels, Accounts: gd.accounts})
+	}
+
+	return groups, errors
+}
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+// FormatDuration converts a duration to a human-readable "Xd Yh" / "Xh Ym" / "Xm" string.
+func FormatDuration(d time.Duration) string {
+	if d <= 0 {
+		return "0m"
+	}
+	total := int(d.Seconds())
+	days := total / (24 * 3600)
+	hours := (total % (24 * 3600)) / 3600
+	mins := (total % 3600) / 60
+	if days > 0 {
+		return fmt.Sprintf("%dd %dh", days, hours)
+	}
+	if hours > 0 {
+		return fmt.Sprintf("%dh %dm", hours, mins)
+	}
+	return fmt.Sprintf("%dm", mins)
+}
+
+// ShortEmail returns the local part of an email address.
+func ShortEmail(email string) string {
+	parts := strings.SplitN(email, "@", 2)
+	return parts[0]
+}

@@ -62,3 +62,24 @@ func Load() (*AccountsConfig, error) {
 			return nil, fmt.Errorf("reading %s: %w", p, err)
 		}
 		var cfg AccountsConfig
+		if err := json.Unmarshal(data, &cfg); err != nil {
+			return nil, fmt.Errorf("parsing %s: %w", p, err)
+		}
+		// Assign fallback email labels (same as TS plugin)
+		for i := range cfg.Accounts {
+			if cfg.Accounts[i].Email == "" {
+				cfg.Accounts[i].Email = fmt.Sprintf("account-%d", i+1)
+			}
+		}
+		return &cfg, nil
+	}
+	return nil, fmt.Errorf("configuration file not found; checked:\n%s\n\nEnsure opencode-antigravity-auth is installed and configured", formatPaths(paths))
+}
+
+func formatPaths(paths []string) string {
+	out := ""
+	for _, p := range paths {
+		out += "  - " + p + "\n"
+	}
+	return out
+}

@@ -958,3 +958,15 @@ func padRight(s string, n int) string {
 // ═══════════════════════════════════════════════════════════════════════════════
 // COMMANDS
 // ═══════════════════════════════════════════════════════════════════════════════
+
+func doFetch(accounts []config.Account) tea.Cmd {
+	return func() tea.Msg {
+		start := time.Now()
+		_, groups, errors := api.FetchAllAccounts(accounts)
+		return fetchDoneMsg{
+			groups: groups,
+			errors: errors,
+			took:   time.Since(start),
+		}
+	}
+}
