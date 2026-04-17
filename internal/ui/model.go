@@ -808,3 +808,18 @@ func categorizeGroups(groups []api.ModelGroup) []categorizedGroup {
 	m := map[string][]api.ModelGroup{}
 	for _, g := range groups {
 		cat := classifyGroup(g)
+		m[cat] = append(m[cat], g)
+	}
+	var result []categorizedGroup
+	for _, cat := range catOrder {
+		if gs, ok := m[cat]; ok {
+			result = append(result, categorizedGroup{category: cat, groups: gs})
+		}
+	}
+	return result
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// RENDERING HELPERS
+// ═══════════════════════════════════════════════════════════════════════════════
+

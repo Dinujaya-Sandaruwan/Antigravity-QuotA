@@ -52,3 +52,4 @@ func configPaths() []string {
 
 // Load reads and parses the accounts config file from the first path that exists.
 func Load() (*AccountsConfig, error) {
+	paths := configPaths()

@@ -322,3 +322,9 @@ func groupModels(results []AccountQuotaResult) ([]ModelGroup, []string) {
 
 	for _, r := range results {
 		if !r.Success || r.Models == nil {
+			errors = append(errors, fmt.Sprintf("%s: %s", ShortEmail(r.Email), r.Error))
+			continue
+		}
+		for _, m := range r.Models {
+			rm, ok := allModels[m.ModelID]
+			if !ok {
