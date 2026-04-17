@@ -55,3 +55,4 @@ func Load() (*AccountsConfig, error) {
 	paths := configPaths()
 	for _, p := range paths {
 		data, err := os.ReadFile(p)
+		if err != nil {

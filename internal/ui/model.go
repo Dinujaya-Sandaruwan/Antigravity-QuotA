@@ -853,3 +853,18 @@ func renderBar(pct float64) (bar string, pctStr string) {
 	// Total filled chars out of (segments × segW)
 	totalFilled := int(math.Round(pct / 100 * float64(segments*segW)))
 	if totalFilled > segments*segW {
+		totalFilled = segments * segW
+	}
+
+	var sb strings.Builder
+	remaining := totalFilled
+	for i := 0; i < segments; i++ {
+		sb.WriteString("[")
+		f := remaining
+		if f > segW {
+			f = segW
+		}
+		if f < 0 {
+			f = 0
+		}
+		e := segW - f

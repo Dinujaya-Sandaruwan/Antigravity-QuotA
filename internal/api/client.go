@@ -340,3 +340,9 @@ func groupModels(results []AccountQuotaResult) ([]ModelGroup, []string) {
 		}
 	}
 
+	// Sort model IDs for deterministic output, then sort by label
+	modelIDs := make([]string, 0, len(allModels))
+	for id := range allModels {
+		modelIDs = append(modelIDs, id)
+	}
+	sort.Slice(modelIDs, func(i, j int) bool {
