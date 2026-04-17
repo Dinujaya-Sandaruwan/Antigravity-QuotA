@@ -57,3 +57,4 @@ func Load() (*AccountsConfig, error) {
 		data, err := os.ReadFile(p)
 		if err != nil {
 			if os.IsNotExist(err) {
+				continue

@@ -352,3 +352,9 @@ func groupModels(results []AccountQuotaResult) ([]ModelGroup, []string) {
 	// Group models with identical per-account quota signatures
 	type groupKey struct{ signature string }
 	type groupData struct {
+		labels   []string
+		accounts []AccountQuotaEntry
+	}
+	groupMap := map[string]*groupData{}
+	var groupOrder []string
+

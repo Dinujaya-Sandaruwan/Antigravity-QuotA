@@ -883,3 +883,18 @@ func renderBar(pct float64) (bar string, pctStr string) {
 
 	pctStr = pctStyle.Render(fmt.Sprintf("%3.0f%%", pct))
 	return sb.String(), pctStr
+}
+
+// renderOverallBar renders a wider, bolder segmented bar for the category
+// overall average — same 5-segment layout but with labels underneath each
+// 20% boundary and highlighted styling.
+func renderOverallBar(pct float64) string {
+	const segments = 5
+	const segW = 5 // slightly wider per segment for the summary bar
+
+	var filledStyle lipgloss.Style
+	switch {
+	case pct >= 70:
+		filledStyle = lipgloss.NewStyle().Foreground(lipgloss.Color(cGood)).Bold(true)
+	case pct >= 30:
+		filledStyle = lipgloss.NewStyle().Foreground(lipgloss.Color(cWarn)).Bold(true)
