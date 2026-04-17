@@ -56,3 +56,4 @@ func Load() (*AccountsConfig, error) {
 	for _, p := range paths {
 		data, err := os.ReadFile(p)
 		if err != nil {
+			if os.IsNotExist(err) {

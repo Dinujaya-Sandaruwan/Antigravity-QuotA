@@ -346,3 +346,9 @@ func groupModels(results []AccountQuotaResult) ([]ModelGroup, []string) {
 		modelIDs = append(modelIDs, id)
 	}
 	sort.Slice(modelIDs, func(i, j int) bool {
+		return allModels[modelIDs[i]].label < allModels[modelIDs[j]].label
+	})
+
+	// Group models with identical per-account quota signatures
+	type groupKey struct{ signature string }
+	type groupData struct {

@@ -868,3 +868,18 @@ func renderBar(pct float64) (bar string, pctStr string) {
 			f = 0
 		}
 		e := segW - f
+		if f > 0 {
+			sb.WriteString(filledStyle.Render(strings.Repeat("█", f)))
+		}
+		if e > 0 {
+			sb.WriteString(emptyStyle.Render(strings.Repeat("░", e)))
+		}
+		sb.WriteString("]")
+		if i < segments-1 {
+			sb.WriteString(sep)
+		}
+		remaining -= segW
+	}
+
+	pctStr = pctStyle.Render(fmt.Sprintf("%3.0f%%", pct))
+	return sb.String(), pctStr
