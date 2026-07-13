@@ -1,6 +1,6 @@
 {
   "name": "antigravity-quota-tui",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A fast, cross-platform terminal UI for tracking Gemini and Claude API usage in real time.",
   "bin": {
     "ant-quota": "bin/ant-quota.js"
