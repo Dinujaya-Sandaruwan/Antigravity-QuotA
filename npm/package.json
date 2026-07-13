@@ -1,7 +1,7 @@
 {
   "name": "antigravity-quota-tui",
-  "version": "1.0.1",
-  "description": "A sleek terminal dashboard to monitor your AI model quotas and rate limits across multiple accounts.",
+  "version": "1.0.5",
+  "description": "A fast, cross-platform terminal UI for tracking Gemini and Claude API usage in real time.",
   "bin": {
     "ant-quota": "bin/ant-quota.js"
   },

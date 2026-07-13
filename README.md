@@ -2,18 +2,18 @@
   
 # Antigravity QuotA
 
-**A sleek terminal dashboard to monitor your AI model quotas and rate limits across multiple accounts.**
+**A fast, cross-platform terminal UI for tracking Gemini and Claude API usage in real time.**
 
 [![npm version](https://img.shields.io/npm/v/antigravity-quota-tui.svg?style=flat-square)](https://www.npmjs.com/package/antigravity-quota-tui)
 [![Go](https://img.shields.io/badge/Go-1.21+-00ADD8?style=flat-square&logo=go&logoColor=white)](#)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-blue?style=flat-square)](#)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](#)
 
-<img src="./assets/dashboard.png" alt="Antigravity Quota Dashboard" width="800"/>
+<img src="https://raw.githubusercontent.com/Dinujaya-Sandaruwan/Antigravity-QuotA/main/assets/screenshot.jpg" alt="Antigravity Quota Dashboard" width="800"/>
 
 </div>
 
-## ✨ Features
+## Features
 
 - **Real-Time Monitoring**: Instantly check API quotas for **Gemini**, **Claude**, and **Flash Lite** models.
 - **Multi-Account Support**: Aggregate and view quotas for dozens of accounts side-by-side.
@@ -24,7 +24,7 @@
 
 ---
 
-## 🚀 Installation
+## Installation
 
 ### Option 1: Using NPM (Recommended)
 If you have Node.js installed, you can install the CLI globally. This will automatically download the correct highly-optimized Go binary for your operating system.
@@ -46,7 +46,7 @@ go build -o antigravity-quota .
 
 ---
 
-## ⚡️ Usage
+## Usage
 
 Simply run the following command in your terminal:
 
@@ -67,11 +67,11 @@ ant-quota
 
 ---
 
-## ⚙️ Configuration (Important!)
+## Configuration (Important!)
 
 The application needs your account credentials to fetch quota limits. It reads these from a JSON file named `antigravity-accounts.json`.
 
-> 💡 **CRITICAL: The `OPENCODE_CONFIG_DIR` Environment Variable**
+> **CRITICAL: The `OPENCODE_CONFIG_DIR` Environment Variable**
 >
 > By default, the application looks for your configuration file in standard OS locations (e.g., `~/.config/opencode/` on Mac/Linux or `C:\Users\<You>\.config\opencode\` on Windows).
 > 
@@ -120,11 +120,11 @@ Make sure your configuration file looks like this:
 
 ---
 
-## 🛠 Built With
+## Built With
 
 * **[Go](https://go.dev/)** - The core programming language
 * **[Bubble Tea](https://github.com/charmbracelet/bubbletea)** - The terminal UI framework
 * **[Lip Gloss](https://github.com/charmbracelet/lipgloss)** - Style definitions for terminal layouts
 
-## 📝 License
+## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

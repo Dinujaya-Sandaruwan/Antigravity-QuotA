@@ -2,18 +2,18 @@
   
 # Antigravity QuotA (TUI)
 
-**A sleek terminal dashboard to monitor your AI model quotas and rate limits across multiple accounts.**
+**A fast, cross-platform terminal UI for tracking Gemini and Claude API usage in real time.**
 
 [![npm version](https://img.shields.io/npm/v/antigravity-quota-tui.svg?style=flat-square)](https://www.npmjs.com/package/antigravity-quota-tui)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](#)
 
-<img src="https://raw.githubusercontent.com/Dinujaya-Sandaruwan/Antigravity-QuotA/main/assets/dashboard.png" alt="Antigravity Quota Dashboard" width="800"/>
+<img src="https://raw.githubusercontent.com/Dinujaya-Sandaruwan/Antigravity-QuotA/main/assets/screenshot.jpg" alt="Antigravity Quota Dashboard" width="800"/>
 
 </div>
 
 ---
 
-## ✨ Overview
+## Overview
 
 `antigravity-quota-tui` is a standalone CLI tool that provides a beautiful, real-time dashboard for monitoring your Google Cloud Code / AI Companion API quotas. 
 
@@ -23,7 +23,7 @@ Whether you are managing multiple accounts for **Gemini**, **Claude**, or **Flas
 
 ---
 
-## 🚀 Installation
+## Installation
 
 Install the package globally using npm to make the `ant-quota` command available everywhere on your system:
 
@@ -33,7 +33,7 @@ npm install -g antigravity-quota-tui
 
 ---
 
-## ⚡️ Usage
+## Usage
 
 Launch the dashboard from any terminal by typing:
 
@@ -49,11 +49,11 @@ ant-quota
 
 ---
 
-## ⚙️ Configuration (Important!)
+## Configuration (Important!)
 
 The tool requires your account credentials to fetch the data. It expects to find a configuration file named `antigravity-accounts.json`.
 
-> 🔥 **CRITICAL: The `OPENCODE_CONFIG_DIR` Variable**
+> **CRITICAL: The `OPENCODE_CONFIG_DIR` Variable**
 >
 > To ensure the tool can reliably find your configuration file across different operating systems, **it is highly recommended to set the `OPENCODE_CONFIG_DIR` environment variable.**
 
@@ -90,10 +90,10 @@ $env:OPENCODE_CONFIG_DIR="C:\Path\To\My\Config\Folder"
 
 ---
 
-## 🔗 Links
+## Links
 
 - **GitHub Repository**: [Dinujaya-Sandaruwan/Antigravity-QuotA](https://github.com/Dinujaya-Sandaruwan/Antigravity-QuotA)
 - **Report an Issue**: [GitHub Issues](https://github.com/Dinujaya-Sandaruwan/Antigravity-QuotA/issues)
 
-## 📝 License
+## License
 MIT License. See the [GitHub repository](https://github.com/Dinujaya-Sandaruwan/Antigravity-QuotA) for full details.
