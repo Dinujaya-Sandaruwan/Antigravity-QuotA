@@ -1,0 +1,50 @@
+{
+  "name": "antigravity-quota-tui",
+  "version": "1.0.0",
+  "description": "A sleek terminal dashboard to monitor your AI model quotas and rate limits across multiple accounts.",
+  "bin": {
+    "ant-quota": "bin/ant-quota.js"
+  },
+  "scripts": {
+    "postinstall": "node install.js"
+  },
+  "keywords": [
+    "antigravity",
+    "quota",
+    "cli",
+    "tui",
+    "gemini",
+    "claude",
+    "ai",
+    "dashboard",
+    "terminal"
+  ],
+  "author": "Dinujaya Sandaruwan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dinujaya-Sandaruwan/Antigravity-QuotA.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dinujaya-Sandaruwan/Antigravity-QuotA/issues"
+  },
+  "homepage": "https://github.com/Dinujaya-Sandaruwan/Antigravity-QuotA#readme",
+  "engines": {
+    "node": ">=14"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "files": [
+    "bin/",
+    "install.js",
+    "README.md",
+    "LICENSE"
+  ]
+}

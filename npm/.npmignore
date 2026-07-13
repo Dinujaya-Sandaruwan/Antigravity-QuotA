@@ -1,0 +1,5 @@
+node_modules/
+bin/antigravity-quota
+bin/antigravity-quota.exe
+*.tar.gz
+*.zip
