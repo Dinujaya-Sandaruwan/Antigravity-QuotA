@@ -7,7 +7,7 @@
 [![npm version](https://img.shields.io/npm/v/antigravity-quota-tui.svg?style=flat-square)](https://www.npmjs.com/package/antigravity-quota-tui)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](#)
 
-<img src="https://raw.githubusercontent.com/Dinujaya-Sandaruwan/Antigravity-QuotA/main/assets/screenshot.jpg" alt="Antigravity Quota Dashboard" width="800"/>
+<img src="https://raw.githubusercontent.com/Dinujaya-Sandaruwan/Antigravity-QuotA/main/assets/dashboard-ui.jpg" alt="Antigravity Quota Dashboard" width="800"/>
 
 </div>
 

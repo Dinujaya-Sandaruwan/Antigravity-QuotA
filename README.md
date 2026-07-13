@@ -9,7 +9,7 @@
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-blue?style=flat-square)](#)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](#)
 
-<img src="https://raw.githubusercontent.com/Dinujaya-Sandaruwan/Antigravity-QuotA/main/assets/screenshot.jpg" alt="Antigravity Quota Dashboard" width="800"/>
+<img src="https://raw.githubusercontent.com/Dinujaya-Sandaruwan/Antigravity-QuotA/main/assets/dashboard-ui.jpg" alt="Antigravity Quota Dashboard" width="800"/>
 
 </div>
 
