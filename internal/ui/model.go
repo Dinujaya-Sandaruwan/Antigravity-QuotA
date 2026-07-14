@@ -191,6 +191,12 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		case "r":
 			if !m.loading {
 				m.loading = true
+				// Hot-reload config to capture newly logged-in/logged-out accounts
+				if cfg, err := config.Load(); err == nil && cfg != nil {
+					if len(cfg.Accounts) > 0 {
+						m.Accounts = cfg.Accounts
+					}
+				}
 				return m, doFetch(m.Accounts)
 			}
 		case "up", "k":
